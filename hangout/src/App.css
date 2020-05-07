@@ -1,0 +1,47 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hangout-title {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(61, 1, 87);
+  color: white;
+  font-size: 36pt;
+}
+
+.login-container {
+  width: 900px;
+  background-color: rgb(250, 245, 255);
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-title {
+  font-size: 24pt;
+  padding: 30px;
+}
+
+.login-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username, .password {
+  width: 150px;
+  margin: 5px 0 20px 0;
+}
+
+.submit-button {
+  background-color: rgb(61, 1, 87);
+  color: white;
+  border-radius: 5em;
+  padding: 5px;
+  width: 150px;
+}
