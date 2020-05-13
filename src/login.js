@@ -12,7 +12,7 @@ export function Login() {
                     <input type="text" className="username"></input>
                     <label for="password">Password:</label>
                     <input type="text" className="password"></input>
-                    <button type="submit" className="submit-button" value="submit">Submit</button>
+                    <button type="submit" className="submit-button" value="login" onClick={() => props.remove(login-container)}>Login</button>
                 </div>
             </div>
         </div>
