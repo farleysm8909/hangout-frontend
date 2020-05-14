@@ -1,5 +1,6 @@
 import React from 'react';
-import './login.css';
+import './App.css';
+import './login.css'; 
 
 //components (e.g., Login) return html structures
 export function Login() {
@@ -13,7 +14,7 @@ export function Login() {
                     <input type="text" className="username"></input>
                     <label for="password">Password:</label>
                     <input type="text" className="password"></input>
-                    <button type="submit" className="submit-button" value="login" onClick={() => Login.remove(login-container)}>Login</button>
+                    <button type="submit" className="submit-button" value="login" /*onClick={() => Login.remove(login-container)}*/>Login</button>
                 </div>
             </div>
         </div>

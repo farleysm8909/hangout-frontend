@@ -1,17 +1,5 @@
-body {
-    background-color: rgb(250, 245, 255);
-  }
-  
   .login-page {
     text-align: center;
-  }
-  
-  .hangout-title {
-    width: 100%;
-    height: 75px;
-    background-color: rgb(61, 1, 87);
-    color: white;
-    font-size: 36pt;
   }
   
   .login-container {
