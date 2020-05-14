@@ -6,7 +6,6 @@ import './login.css';
 export function Login() {
     return (
         <div className="login-page">
-            <div className="hangout-title">Hangout</div>
             <div className="login-container">
                 <div className="login-title">Login</div>
                 <div className="login-info">

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux'; //allows children access, avoids prop drilling
-import store from './store.js';
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
