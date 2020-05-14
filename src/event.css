@@ -1,5 +1,9 @@
 .event {
     width: 150px;
     height: 150px;
-    border: 3px solid gray;
+    border: 2px solid gray;
+}
+
+.date {
+    text-align: right;
 }

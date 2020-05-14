@@ -10,7 +10,8 @@ export function Event(props) {
     return (
         <div className="event">
              <span className="date">{months[event.month - 1]} {event.day}</span>
-             <div className="name">{event.event_name}</div> 
+             <div className="name">{event.event_name}</div>
+             <div className="time">{event.start_time}-{event.end_time}</div>
         </div>
     );
 }
