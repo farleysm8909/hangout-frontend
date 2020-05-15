@@ -35,7 +35,7 @@ export function loadMonth(month, year) {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    dispatch(loadEvents(data.hangout)); //in Chris's videos, he uses "memories" instead of "hangout"
+                    dispatch(loadEvents(data.hangout));
                 }
             })
             .catch(e => console.error(e));
