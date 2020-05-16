@@ -10,7 +10,6 @@ const year = date.getFullYear();
 const month = date.getMonth() + 1;
 
 function App() {
-
   const events = useSelector(state => state.events);
   const dispatch = useDispatch(); //gets handle on dispatch fxn
 
@@ -19,7 +18,7 @@ function App() {
   }, [dispatch]); //no real dependencies so events only run once when app renders (redux2)
 
   const onAdd = () => {
-    dispatch(startAddingEvent(year, month)); //thunk issued
+    dispatch(startAddingEvent(month, year)); //thunk issued
   }
 
   return (

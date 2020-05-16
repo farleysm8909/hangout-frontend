@@ -42,7 +42,7 @@ export function loadMonth(month, year) {
     };
 }
 
-export function startAddingEvent(year, month) { //note: month/year will correspond to whatever month/year user accesses app
+export function startAddingEvent(month, year) { //note: month/year will correspond to whatever month/year user accesses app
     const event = { 
         name: '', day: '', month, year, start_time: '', end_time: '' //add users attending?         
     };
