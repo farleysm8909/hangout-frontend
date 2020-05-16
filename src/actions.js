@@ -35,7 +35,7 @@ export function loadMonth(month, year) {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    dispatch(loadEvents(data.hangout));
+                    dispatch(loadEvents(data.events));
                 }
             })
             .catch(e => console.error(e));
@@ -44,7 +44,7 @@ export function loadMonth(month, year) {
 
 export function startAddingEvent(month, year) { //note: month/year will correspond to whatever month/year user accesses app
     const event = { 
-        name: '', day: '', month, year, start_time: '', end_time: '' //add users attending?         
+        event_name: '', month, day: '', year, start_time: '', end_time: '' //add users attending?         
     };
     const options = {
         method: 'POST',

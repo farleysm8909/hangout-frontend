@@ -25,7 +25,7 @@ function App() {
     <div id="hangout-root">
       <div className="hangout-title">Hangout</div>
       <Login />
-      <button className="addEventBtn" onClick={onAdd}>Create New Event</button>
+      <button onClick={onAdd}>Create New Event</button>
         {events.map(event => <Event key={event.id} event={event} />)}
     </div>
   );

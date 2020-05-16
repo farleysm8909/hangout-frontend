@@ -6,4 +6,10 @@
 
 .date {
     text-align: right;
+    padding-bottom: 10px;
+    font-size: 14pt;
+}
+
+.date, .desc {
+    padding: 5px;
 }
