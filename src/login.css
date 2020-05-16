@@ -1,18 +1,24 @@
   .login-page {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
   
-  .login-container {
-    width: 75%;
+  .login-container, .account-container {
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    width: 500px;
   }
-  
-  .login-title {
+
+  .vLine {
+    border-left: 2px solid rgb(61, 1, 87);
+    height: 425px;
+  }
+
+  .login-title, .account-title {
     font-size: 24pt;
-    padding: 30px;
+    padding-bottom: 30px;
+    text-align: center;
   }
   
   .login-info {
@@ -22,9 +28,9 @@
     align-items: center;
   }
   
-  .username, .password {
+  .user-input {
     width: 150px;
-    margin: 5px 0 20px 0;
+    margin: 5px 10px 20px 10px;
   }
   
   .submit-button {
@@ -33,6 +39,7 @@
     border-radius: 5em;
     padding: 5px;
     width: 150px;
+    margin-top: 20px;
   }
   
   .submit-button:hover {
