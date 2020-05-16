@@ -12,7 +12,7 @@ export function Login() {
                     <label for="username">Username:</label>
                     <input type="text" className="user-input"></input>
                     <label for="password">Password:</label>
-                    <input type="text" className="user-input"></input>
+                    <input type="password" className="user-input"></input>
                     <button type="submit" className="submit-button" value="login" /*onClick={() => Login.remove(login-container)}*/>Login</button>
                 </div>
             </div>
@@ -27,7 +27,7 @@ export function Login() {
                         <label for="username">Username:</label>
                         <input type="text" className="user-input"></input>
                         <label for="password">Password:</label>
-                        <input type="text" className="user-input"></input>
+                        <input type="password" className="user-input"></input>
                     <button type="submit" className="submit-button" value="Create New Account" /*onClick={() => Login.remove(login-container)}*/>Create Account</button>
                 </div>
             </div>
