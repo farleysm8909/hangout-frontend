@@ -16,11 +16,11 @@ function App() {
 
   useEffect(() => {
     dispatch(loadMonth(month, year));
-}, [dispatch]); //no real dependencies so events only run once when app renders (redux2)
+  }, [dispatch]); //no real dependencies so events only run once when app renders (redux2)
 
-const onAdd = () => {
-  dispatch(startAddingEvent(year, month)); //thunk issued
-}
+  const onAdd = () => {
+    dispatch(startAddingEvent(year, month)); //thunk issued
+  }
 
   return (
     <div id="hangout-root">
