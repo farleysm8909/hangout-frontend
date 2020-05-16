@@ -43,19 +43,19 @@ export function loadMonth(month, year) {
 }
 
 export function startAddingEvent(year, month) { //note: month/year will correspond to whatever month/year user accesses app
-    return dispatch => {
-        const event = { 
-            name: '', day: '', month, year, start_time: '', end_time: '' //add users attending? 
-        };
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event),
-        }
+    const event = { 
+        name: '', day: '', month, year, start_time: '', end_time: '' //add users attending?         
+    };
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(event),
+    }
 
-        fetch(`${host}/hangout`)
+    return dispatch => {
+        fetch(`${host}/hangout`, options)
             .then(checkForErrors)
             .then(response => response.json())
             .then(data => {
