@@ -35,7 +35,7 @@ export function loadMonth(month, year) {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    dispatch(loadEvents(data.events));
+                    dispatch(loadEvents(data.hangout));
                 }
             })
             .catch(e => console.error(e));

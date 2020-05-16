@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //I know we need useState to store user variables but I haven't done anything with this yet
 import './App.css';
 import './login.css'; 
 
