@@ -12,6 +12,7 @@ export function Event(props) {
     const [year, setYear] = useState(event.year);
     const [month, setMonth] = useState(event.month);
     const [day, setDay] = useState(event.day);
+    const [event_name, setEventName] = useState(event.event_name);
 
     const onEdit = () => {
         dispatch(enterEditMode(event));
@@ -24,14 +25,14 @@ export function Event(props) {
         return (
             <div className="event">
                 <div className="event-left">
-                    <input type="text"/>
-                    <input type="text"/>
-                    <input type="text"/>
+                    <input type="text" value={year}/>
+                    <input type="text" value={month}/>
+                    <input type="text" value={day}/>
                     <button>save</button>
                     <button onClick={onCancel}>cancel</button>
                 </div>
                 <div className="event-right">
-                    <textarea />
+                    <textarea value={event_name}/>
                 </div>
             </div>
         );

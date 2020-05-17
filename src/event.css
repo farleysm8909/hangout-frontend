@@ -4,6 +4,16 @@
     border: 2px solid rgb(61, 1, 87);
 }
 
+.event-left {
+    padding: 10px;
+    background-color: green;
+}
+
+.event-right {
+    padding: 10px;
+    background-color: pink;
+}
+
 .date {
     text-align: right;
     padding-bottom: 10px;
