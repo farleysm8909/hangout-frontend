@@ -1,8 +1,9 @@
-import React, { useState } from 'react'; //I know we need useState to store user variables but I haven't done anything with this yet
+import React, { useState } from 'react'; //I know we need useState to store user variables (e.g., username/password) but I haven't figured out how to do this
 import './App.css';
 import './login.css'; 
 
 //components (e.g., Login) return html structures
+//ran into server issues so we weren't able to figure out how to connect this component to the database (buttons don't function)
 export function Login() {
     return (
         <div className="login-page">
@@ -13,7 +14,7 @@ export function Login() {
                     <input type="text" className="user-input"></input>
                     <label for="password">Password:</label>
                     <input type="password" className="user-input"></input>
-                    <button type="submit" className="submit-button" value="login" /*onClick={() => Login.remove(login-container)}*/>Login</button>
+                    <button type="submit" className="submit-button" value="login" /*onClick={}*/>Login</button>
                 </div>
             </div>
             <div className="vLine"></div>
@@ -28,7 +29,7 @@ export function Login() {
                         <input type="text" className="user-input"></input>
                         <label for="password">Password:</label>
                         <input type="password" className="user-input"></input>
-                    <button type="submit" className="submit-button" value="Create New Account" /*onClick={() => Login.remove(login-container)}*/>Create Account</button>
+                    <button type="submit" className="submit-button" value="Create New Account" /*onClick={}*/>Create Account</button>
                 </div>
             </div>
         </div>
