@@ -1,6 +1,8 @@
 export const Action = Object.freeze({
     LoadEvents: 'LoadEvents',
     FinishAddingEvent: 'FinishAddingEvent',
+    EnterEditMode: 'EnterEditMode',
+    LeaveEditMode: 'LeaveEditMode',
 });
 
 export function loadEvents(events) {
@@ -15,6 +17,20 @@ export function finishAddingEvent(event) {
         type: Action.FinishAddingEvent,
         payload: event,
     };
+}
+
+export function enterEditMode(event) {
+    return {
+        type: Action.EnterEditMode,
+        payload: event,
+    };
+}
+
+export function leaveEditMode(event) {
+    return {
+        type: Action.LeaveEditMode,
+        payload: event,
+    }
 }
 
 function checkForErrors(response) {
