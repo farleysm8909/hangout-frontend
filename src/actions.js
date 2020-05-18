@@ -4,7 +4,8 @@ export const Action = Object.freeze({
     EnterEditMode: 'EnterEditMode',
     LeaveEditMode: 'LeaveEditMode',
     StartSavingEvent: 'StartSavingEvent',
-    FinishSavingEvent: 'FinishSavingEvent'
+    FinishSavingEvent: 'FinishSavingEvent',
+    FinishDeletingEvent: 'FinishDeletingEvent'
 });
 
 export function loadEvents(events) {
@@ -24,6 +25,13 @@ export function finishAddingEvent(event) {
 export function finishSavingEvent(event) {
     return {
         type: Action.FinishSavingEvent,
+        payload: event,
+    };
+}
+
+export function finishDeletingEvent(event) {
+    return {
+        type: Action.FinishDeletingEvent,
         payload: event,
     };
 }
@@ -108,6 +116,24 @@ export function startSavingEvent(event) { //note: month/year will correspond to 
             .then(data => {
                 if (data.ok) {                //update event object to have new database id
                     dispatch(finishSavingEvent(event)); //update store
+                }
+            })
+            .catch(e => console.error(e));
+    };
+}
+
+export function startDeletingEvent(event) { //note: month/year will correspond to whatever month/year user accesses app
+    const options = {
+        method: 'DELETE',
+    };
+
+    return dispatch => {
+    fetch(`${host}/hangout/${event.id}`, options)
+            .then(checkForErrors)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {                //update event object to have new database id
+                    dispatch(finishDeletingEvent(event)); //update store
                 }
             })
             .catch(e => console.error(e));

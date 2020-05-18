@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import './event.css';
 import { useDispatch } from 'react-redux';
-import { enterEditMode, leaveEditMode, startSavingEvent } from './actions'
+import { enterEditMode, leaveEditMode, startSavingEvent, startDeletingEvent } from './actions'
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -31,6 +31,10 @@ export function Event(props) {
         event_name
     }
 
+    const onDelete = () => {
+        dispatch(startDeletingEvent(event));
+    }
+
     if (event.isEditing) {
         return (
             <div className="event">
@@ -40,6 +44,7 @@ export function Event(props) {
                     <input type="text" value={day} onChange={e => setDay(parseInt(e.target.value))}/>
                     <button onClick={onSave}>save</button>
                     <button onClick={onCancel}>cancel</button>
+                    <button className="delete-button" onClick={onDelete}>delete</button>
                 </div>
                 <div className="event-right">
                     <textarea value={event_name} onChange={e => setEventName(e.target.value)}/>

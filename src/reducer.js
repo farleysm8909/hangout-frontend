@@ -51,6 +51,11 @@ function reducer(state = initialState, action) {
                     }
                 })
             };
+            case Action.FinishDeletingEvent:
+                return {
+                    ...state,
+                    events: state.events.filter(event => event.id !== action.payload.id),
+                };
         default:
             return state;
     }
