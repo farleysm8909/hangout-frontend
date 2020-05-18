@@ -17,6 +17,8 @@
     top: 50%;
     left: 50%;
     animation: rotate 1s infinite linear;
+    margin-bottom: 50px;
+    margin-right: 50px;
   }
 
   @keyframes rotate {
