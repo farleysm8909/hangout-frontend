@@ -3,6 +3,8 @@ export const Action = Object.freeze({
     FinishAddingEvent: 'FinishAddingEvent',
     EnterEditMode: 'EnterEditMode',
     LeaveEditMode: 'LeaveEditMode',
+    StartSavingEvent: 'StartSavingEvent',
+    FinishSavingEvent: 'FinishSavingEvent'
 });
 
 export function loadEvents(events) {
@@ -15,6 +17,13 @@ export function loadEvents(events) {
 export function finishAddingEvent(event) {
     return {
         type: Action.FinishAddingEvent,
+        payload: event,
+    };
+}
+
+export function finishSavingEvent(event) {
+    return {
+        type: Action.FinishSavingEvent,
         payload: event,
     };
 }
@@ -78,6 +87,27 @@ export function startAddingEvent(month, year) { //note: month/year will correspo
                 if (data.ok) {
                     event.id = data.id;                 //update event object to have new database id
                     dispatch(finishAddingEvent(event)); //update store
+                }
+            })
+            .catch(e => console.error(e));
+    };
+}
+export function startSavingEvent(event) { //note: month/year will correspond to whatever month/year user accesses app
+    const options = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(event),
+    }
+
+    return dispatch => {
+    fetch(`${host}/hangout/${event.id}`, options)
+            .then(checkForErrors)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {                //update event object to have new database id
+                    dispatch(finishSavingEvent(event)); //update store
                 }
             })
             .catch(e => console.error(e));

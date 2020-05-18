@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import './event.css';
 import { useDispatch } from 'react-redux';
-import { enterEditMode, leaveEditMode } from './actions'
+import { enterEditMode, leaveEditMode, startSavingEvent } from './actions'
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -21,18 +21,28 @@ export function Event(props) {
     const onCancel = () => {
         dispatch(leaveEditMode(event));
     }
+
+    const onSave = () => {
+        dispatch(startSavingEvent(event));
+        id: event.id,
+        year,
+        month,
+        day,
+        event_name
+    }
+
     if (event.isEditing) {
         return (
             <div className="event">
                 <div className="event-left">
-                    <input type="text" value={year}/>
-                    <input type="text" value={month}/>
-                    <input type="text" value={day}/>
-                    <button>save</button>
+                    <input type="text" value={year} onChange={e => setYear(parseInt(e.target.value))}/>
+                    <input type="text" value={month} onChange={e => setMonth(parseInt(e.target.value))}/>
+                    <input type="text" value={day} onChange={e => setDay(parseInt(e.target.value))}/>
+                    <button onClick={onSave}>save</button>
                     <button onClick={onCancel}>cancel</button>
                 </div>
                 <div className="event-right">
-                    <textarea value={event_name}/>
+                    <textarea value={event_name} onChange={e => setEventName(e.target.value)}/>
                 </div>
             </div>
         );

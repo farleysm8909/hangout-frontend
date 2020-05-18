@@ -17,29 +17,40 @@ function reducer(state = initialState, action) {
             return {
                 ...state,               //keep everything from the old state
                 events: [action.payload, ...state.events],  //builds new array of events with newly-added one at the top (HOW TO ADJUST SO IT IS IN ORDER BY DAY?)
-            }; 
+            };
         case Action.EnterEditMode:
             return {
                 ...state,
                 events: state.events.map(event => {
-                    if(event.id === action.payload.id) {
-                        return {...event, isEditing: true};
+                    if (event.id === action.payload.id) {
+                        return { ...event, isEditing: true };
                     } else {
                         return event;
                     }
                 })
             };
-            case Action.LeaveEditMode:
-                return {
-                    ...state,
-                    events: state.events.map(event => {
-                        if(event.id === action.payload.id) {
-                            return {...event, isEditing: undefined};
-                        } else {
-                            return event;
-                        }
-                    })
-                };
+        case Action.LeaveEditMode:
+            return {
+                ...state,
+                events: state.events.map(event => {
+                    if (event.id === action.payload.id) {
+                        return { ...event, isEditing: undefined };
+                    } else {
+                        return event;
+                    }
+                })
+            };
+        case Action.FinishSavingEvent:
+            return {
+                ...state,
+                events: state.events.map(event => {
+                    if (event.id === action.payload.id) {
+                        return action.payload;
+                    } else {
+                        return event;
+                    }
+                })
+            };
         default:
             return state;
     }
