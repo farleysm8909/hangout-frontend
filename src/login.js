@@ -10,9 +10,9 @@ export function Login() {
             <div className="login-container">
                 <div className="login-title">Login</div>
                 <div className="login-info">
-                    <label for="username">Username:</label>
+                    <label htmlFor="username">Username:</label>
                     <input type="text" className="user-input"></input>
-                    <label for="password">Password:</label>
+                    <label htmlFor="password">Password:</label>
                     <input type="password" className="user-input"></input>
                     <button type="submit" className="submit-button" value="login" /*onClick={}*/>Login</button>
                 </div>
@@ -21,13 +21,13 @@ export function Login() {
             <div className="account-container">
                 <div className="account-title">Create New Account</div>
                 <div className="login-info">
-                        <label for="firstname">First Name:</label>
+                        <label htmlFor="firstname">First Name:</label>
                         <input type="text" className="user-input"></input>
-                        <label for="lastname">Last Name:</label>
+                        <label htmlFor="lastname">Last Name:</label>
                         <input type="text" className="user-input"></input>
-                        <label for="username">Username:</label>
+                        <label htmlFor="username">Username:</label>
                         <input type="text" className="user-input"></input>
-                        <label for="password">Password:</label>
+                        <label htmlFor="password">Password:</label>
                         <input type="password" className="user-input"></input>
                     <button type="submit" className="submit-button" value="Create New Account" /*onClick={}*/>Create Account</button>
                 </div>
