@@ -4,6 +4,7 @@ import {Event} from './event.js';
 import {Login} from './login.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {loadMonth, startAddingEvent} from './actions';
+import progress from './progress.png';
 
 const date = new Date();
 const year = date.getFullYear();
@@ -26,7 +27,7 @@ function App() {
     <div id="hangout-root">
       <div className="hangout-title">Hangout</div>
       <Login />
-      {isWaiting && <img className="progress-indicator" src={'/public/progress.png'} />}
+      {isWaiting && <img className="progress-indicator" src={progress} />}
       <button onClick={onAdd}>Create New Event</button>
         {events.map(event => <Event key={event.id} event={event} />)}
     </div>
