@@ -23,13 +23,14 @@ export function Event(props) {
     }
 
     const onSave = () => {
-        dispatch(startSavingEvent(event));
+        dispatch(startSavingEvent({
         id: event.id,
         year,
         month,
         day,
         event_name
-    }
+    }));
+}
 
     const onDelete = () => {
         dispatch(startDeletingEvent(event));
