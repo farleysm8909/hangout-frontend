@@ -27,7 +27,7 @@ function App() {
     <div id="hangout-root">
       <div className="hangout-title">Hangout</div>
       <Login />
-      {isWaiting && <img className="progress-indicator" src={progress} />}
+      {isWaiting && <img className="progress-indicator" src={progress} alt="Progress Indicator"/>}
       <button onClick={onAdd}>Create New Event</button>
         {events.map(event => <Event key={event.id} event={event} />)}
     </div>
