@@ -28,8 +28,8 @@ function App() {
       <div className="hangout-title">Hangout</div>
       <Login />
       {isWaiting && <img className="progress-indicator" src={progress} alt="Progress Indicator"/>}
-      <button onClick={onAdd}>Create New Event</button>
-        {events.map(event => <Event key={event.id} event={event} />)}
+      <button className="create-event-btn" onClick={onAdd}>Create New Event</button>
+      <div className="calendar">{events.map(event => <Event key={event.id} event={event} />)}</div>
     </div>
   );
 }

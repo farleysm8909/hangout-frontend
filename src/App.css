@@ -12,13 +12,28 @@
     background-color: rgb(250, 245, 255);
   }
 
+  .calendar {
+    display: flex;
+    flex-direction: row;
+    margin: 0 100px 30px 100px;
+  }
+
+  .create-event-btn {
+    margin: 0 0 80px 100px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 150px;
+  }
+
   .progress-indicator {
     position: fixed;
     top: 50%;
     left: 50%;
     animation: rotate 1s infinite linear;
-    margin-bottom: 50px;
-    margin-right: 50px;
+    margin-top: -50px;
+    margin-left: -50px;
   }
 
   @keyframes rotate {
