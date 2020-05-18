@@ -16,7 +16,7 @@ function reducer(state = initialState, action) {
         case Action.FinishAddingEvent:
             return {
                 ...state,               //keep everything from the old state
-                events: [action.payload, ...state.events],  //builds new array of events with newly-added one at the top (HOW TO ADJUST SO IT IS IN ORDER BY DAY?)
+                events: [{...action.payload, isEditing: true}, ...state.events],  //builds new array of events with newly-added one at the top (HOW TO ADJUST SO IT IS IN ORDER BY DAY?)
             };
         case Action.EnterEditMode:
             return {
