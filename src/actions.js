@@ -5,8 +5,15 @@ export const Action = Object.freeze({
     LeaveEditMode: 'LeaveEditMode',
     StartSavingEvent: 'StartSavingEvent',
     FinishSavingEvent: 'FinishSavingEvent',
-    FinishDeletingEvent: 'FinishDeletingEvent'
+    FinishDeletingEvent: 'FinishDeletingEvent',
+    StartWaiting: 'StartWaiting',
 });
+
+export function startWaiting() {
+    return {
+        type: Action.StartWaiting,
+    };
+}
 
 export function loadEvents(events) {
     return {
@@ -63,8 +70,9 @@ const host = 'https://hangout-api.duckdns.org:8442';
 //it returns a fxn, and in order to allow this, we have to install thunk plugin
 export function loadMonth(month, year) {
     return dispatch => {
-        fetch(`${host}/hangout/${month}/${year}`)   //note: used "hangout" instead of "events" in web service/URL creation
-            .then(checkForErrors)
+        dispatch(startWaiting());
+        fetch(`${host}/hangout/${month}/${year}`)   //note: used "hangout" instead of "events" in web service/URL creation    
+        .then(checkForErrors)
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
@@ -88,6 +96,7 @@ export function startAddingEvent(month, year) { //note: month/year will correspo
     }
 
     return dispatch => {
+        dispatch(startWaiting());
         fetch(`${host}/hangout`, options)
             .then(checkForErrors)
             .then(response => response.json())
@@ -110,7 +119,8 @@ export function startSavingEvent(event) { //note: month/year will correspond to 
     }
 
     return dispatch => {
-    fetch(`${host}/hangout/${event.id}`, options)
+        dispatch(startWaiting());
+        fetch(`${host}/hangout/${event.id}`, options)
             .then(checkForErrors)
             .then(response => response.json())
             .then(data => {
@@ -128,7 +138,8 @@ export function startDeletingEvent(event) { //note: month/year will correspond t
     };
 
     return dispatch => {
-    fetch(`${host}/hangout/${event.id}`, options)
+        dispatch(startWaiting());
+        fetch(`${host}/hangout/${event.id}`, options)
             .then(checkForErrors)
             .then(response => response.json())
             .then(data => {

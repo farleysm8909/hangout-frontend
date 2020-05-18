@@ -11,11 +11,13 @@ function reducer(state = initialState, action) {
         case Action.LoadEvents: //if the event was loading events
             return {
                 ...state,               //keep everything from the old state
+                isWaiting: false,
                 events: action.payload,  //but add new events (from action.payload)
             };
         case Action.FinishAddingEvent:
             return {
                 ...state,               //keep everything from the old state
+                isWaiting: false,
                 events: [{...action.payload, isEditing: true}, ...state.events],  //builds new array of events with newly-added one at the top (HOW TO ADJUST SO IT IS IN ORDER BY DAY?)
             };
         case Action.EnterEditMode:
@@ -43,6 +45,7 @@ function reducer(state = initialState, action) {
         case Action.FinishSavingEvent:
             return {
                 ...state,
+                isWaiting: false,
                 events: state.events.map(event => {
                     if (event.id === action.payload.id) {
                         return action.payload;
@@ -54,7 +57,13 @@ function reducer(state = initialState, action) {
             case Action.FinishDeletingEvent:
                 return {
                     ...state,
+                    isWaiting: false,
                     events: state.events.filter(event => event.id !== action.payload.id),
+                };
+            case Action.StartWaiting:
+                return {
+                    ...state,
+                    isWaiting: true,
                 };
         default:
             return state;

@@ -6,12 +6,12 @@
 
 .event-left {
     padding: 10px;
-    background-color: green;
+    background-color: rgb(61, 1, 87);
+    color: white;
 }
 
 .event-right {
     padding: 10px;
-    background-color: pink;
 }
 
 .delete-button {

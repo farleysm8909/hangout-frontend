@@ -1,7 +1,7 @@
 .hangout-title {
     width: 100%;
     height: 75px;
-    background-color: rgb(61, 1, 87);
+    background-color: #3d0157;
     color: white;
     font-size: 36pt;
     text-align: center;
@@ -11,3 +11,26 @@
   body {
     background-color: rgb(250, 245, 255);
   }
+
+  .progress-bar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border: 5px solid black;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+

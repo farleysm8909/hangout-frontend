@@ -11,6 +11,7 @@ const month = date.getMonth() + 1;
 
 function App() {
   const events = useSelector(state => state.events);
+  const isWaiting = useSelector(state => state.isWaiting);
   const dispatch = useDispatch(); //gets handle on dispatch fxn
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
     <div id="hangout-root">
       <div className="hangout-title">Hangout</div>
       <Login />
+      {isWaiting && <div className="progress-bar" />}
       <button onClick={onAdd}>Create New Event</button>
         {events.map(event => <Event key={event.id} event={event} />)}
     </div>
